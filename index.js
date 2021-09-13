@@ -28,12 +28,14 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  I believe that one of them has a closure and one doesn't.
   
   2. Which of the two uses a closure? How can you tell?
-  
+  Counter 1 because it has an inner function reaching into an outer function to grab a value defined in 
+  the outer function.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+  Counter 1 would be better if you needed a closure and counter 2 if not.
 */
 
 // counter1 code
@@ -165,7 +167,7 @@ function scoreboard(inningScoreCB, inningCB, numInnings) {
     awayScore = awayScore + currentInning.Away
     scoreByInning.push(`Inning ${i + 1}: Away ${currentInning.Away} - Home ${currentInning.Home}`)
   }
-  if(homeScore === AwayScore){
+  if(homeScore === awayScore){
     scoreByInning.push(`This game will require extra innings: Away ${currenInning.Away} - Home 
     ${currentInning.Home}`);
   }else{
